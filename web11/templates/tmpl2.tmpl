@@ -1,0 +1,10 @@
+<html>
+<head>
+<title>Template</title>
+</head>
+<body>
+{{range .}}
+{{template "tmpl1.tmpl" .}} <!-- 틀 안의 틀 -->
+{{end}}
+</body>
+</html>
