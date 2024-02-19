@@ -20,7 +20,7 @@ func main() {
 	user2 := User{Name: "aaa", Email: "aaa@naber.com", Age: 18}
 	users := []User{user1, user2}
 
-	tmpl, err := template.New("Impl1").ParseFiles("templates/tmpl1.tmpl", "templates/tmpl2.tmpl")
+	tmpl, err := template.New("Impl1").ParseFiles("template/tmpl1.tmpl", "template/tmpl2.tmpl")
 	if err != nil {
 		panic(err)
 	}
