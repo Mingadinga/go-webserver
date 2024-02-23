@@ -1,0 +1,10 @@
+github.com/antage/eventsource v0.0.0-20220422142129-c4aae935d5bd h1:FD3sn3oFA0wySr3iH+47H3lIts9qT9nZfoF935hxaH0=
+github.com/antage/eventsource v0.0.0-20220422142129-c4aae935d5bd/go.mod h1:jXAZMa2S7OGjBCXWeQVOIZd+LXToszS2zCh0NiHRGvE=
+github.com/gorilla/context v1.1.2 h1:WRkNAv2uoa03QNIc1A6u4O7DAGMUVoopZhkiXWA2V1o=
+github.com/gorilla/context v1.1.2/go.mod h1:KDPwT9i/MeWHiLl90fuTgrt4/wPcv75vFAZLaOOcbxM=
+github.com/gorilla/mux v1.8.1 h1:TuBL49tXwgrFYWhqrNgrUNEY92u81SPhu7sTdzQEiWY=
+github.com/gorilla/mux v1.8.1/go.mod h1:AKf9I4AEqPTmMytcMc0KkNouC66V3BtZ4qD5fmWSiMQ=
+github.com/gorilla/pat v1.0.2 h1:TDh/RulbnPxMQACcwbgMF5Bf00jaGoeYBNu+XUFuwtE=
+github.com/gorilla/pat v1.0.2/go.mod h1:ioQ7dFQ2KXmOmWLJs6vZAfRikcm2D2JyuLrL9b5wVCg=
+github.com/urfave/negroni v1.0.0 h1:kIimOitoypq34K7TG7DUaJ9kq/N4Ofuwi1sjz0KipXc=
+github.com/urfave/negroni v1.0.0/go.mod h1:Meg73S6kFm/4PpbYdq35yYWoCZ9mS/YSx+lKnmiohz4=
