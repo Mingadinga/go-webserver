@@ -2,7 +2,7 @@ package main
 
 import (
 	"net/http"
-	"todos/app"
+	"todos-dep1/app"
 )
 
 func main() {

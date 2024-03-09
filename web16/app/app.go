@@ -79,9 +79,9 @@ func MakeHandler() http.Handler {
 	r := mux.NewRouter()
 
 	r.HandleFunc("/", indexHandler)
-	r.HandleFunc("/todos", getTodoListHandler).Methods("GET")
-	r.HandleFunc("/todos", addTodoHandler).Methods("POST")
-	r.HandleFunc("/todos/{id:[0-9]+}", removeTodoHandler).Methods("DELETE")
+	r.HandleFunc("/Deploy1", getTodoListHandler).Methods("GET")
+	r.HandleFunc("/Deploy1", addTodoHandler).Methods("POST")
+	r.HandleFunc("/Deploy1/{id:[0-9]+}", removeTodoHandler).Methods("DELETE")
 	r.HandleFunc("/complete-todo/{id:[0-9]+}", completeTodoHandler).Methods("GET")
 
 	return r

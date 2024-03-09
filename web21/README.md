@@ -113,21 +113,21 @@ func newSqliteHandler(filepath string) DBHandler {
 		panic(err)
 	}
     statement, _ := database.Prepare(
-    `CREATE TABLE IF NOT EXISTS todos (
+    `CREATE TABLE IF NOT EXISTS Deploy1 (
 			id        INTEGER  PRIMARY KEY AUTOINCREMENT,
 			sessionId STRING,
 			name      TEXT,
 			completed BOOLEAN,
 			createdAt DATETIME
 		);
-		CREATE INDEX IF NOT EXISTS sessionIdIndexOnTodos ON todos (sessionId ASC);`)
+		CREATE INDEX IF NOT EXISTS sessionIdIndexOnTodos ON Deploy1 (sessionId ASC);`)
 	statement.Exec()
 	return &sqliteHandler{db: database}
 }
 
 func (s *sqliteHandler) GetTodos(sessionId string) []*Todo {
 	todos := []*Todo{}
-	rows, err := s.db.Query("SELECT id, name, completed, createdAt FROM todos WHERE sessionId=?", sessionId)
+	rows, err := s.db.Query("SELECT id, name, completed, createdAt FROM Deploy1 WHERE sessionId=?", sessionId)
 	if err != nil {
 		panic(err)
 	}
@@ -142,7 +142,7 @@ func (s *sqliteHandler) GetTodos(sessionId string) []*Todo {
 }
 
 func (s *sqliteHandler) AddTodo(name string, sessionId string) *Todo {
-	stmt, err := s.db.Prepare("INSERT INTO todos (sessionId, name, completed, createdAt) VALUES (?, ?, ?, datetime('now'))")
+	stmt, err := s.db.Prepare("INSERT INTO Deploy1 (sessionId, name, completed, createdAt) VALUES (?, ?, ?, datetime('now'))")
 	if err != nil {
 		panic(err)
 	}
@@ -186,4 +186,3 @@ func TestAddTodo(t *testing.T) {
     // ..
 }
 ```
-

@@ -207,9 +207,9 @@ func MakeHandler() *AppHandler {
     a := &AppHandler{Handler: r, db: model.NewDBHandler()}
     
     r.HandleFunc("/", a.indexHandler)
-    r.HandleFunc("/todos", a.getTodoListHandler).Methods("GET")
-    r.HandleFunc("/todos", a.addTodoHandler).Methods("POST")
-    r.HandleFunc("/todos/{id:[0-9]+}", a.removeTodoHandler).Methods("DELETE")
+    r.HandleFunc("/Deploy1", a.getTodoListHandler).Methods("GET")
+    r.HandleFunc("/Deploy1", a.addTodoHandler).Methods("POST")
+    r.HandleFunc("/Deploy1/{id:[0-9]+}", a.removeTodoHandler).Methods("DELETE")
     r.HandleFunc("/complete-todo/{id:[0-9]+}", a.completeTodoHandler).Methods("GET")
 
     return a   
@@ -240,7 +240,7 @@ func NewDBHandler() DBHandler {
 // get
 func (s *sqliteHandler) GetTodos() []*Todo {
     todos := []*Todo{}
-    rows, err := s.db.Query("SELECT id, name, completed, createdAt FROM todos")
+    rows, err := s.db.Query("SELECT id, name, completed, createdAt FROM Deploy1")
     if err != nil {
 		panic(err)
     }
@@ -256,7 +256,7 @@ func (s *sqliteHandler) GetTodos() []*Todo {
 
 // add
 func (s *sqliteHandler) AddTodo(name string) *Todo {
-    stmt, err := s.db.Prepare("INSERT INTO todos (name, completed, createdAt) VALUES (?, ?, datetime('now'))")
+    stmt, err := s.db.Prepare("INSERT INTO Deploy1 (name, completed, createdAt) VALUES (?, ?, datetime('now'))")
     if err != nil {
         panic(err)
     }
@@ -276,7 +276,7 @@ func (s *sqliteHandler) AddTodo(name string) *Todo {
 
 // remove
 func (s *sqliteHandler) RemoveTodo(id int) bool {
-    stmt, err := s.db.Prepare("DELETE FROM todos WHERE id = ?")
+    stmt, err := s.db.Prepare("DELETE FROM Deploy1 WHERE id = ?")
     if err != nil {
         panic(err)
     }
@@ -290,7 +290,7 @@ func (s *sqliteHandler) RemoveTodo(id int) bool {
 
 // update
 func (s *sqliteHandler) CompleteTodo(id int, complete bool) bool {
-    stmt, err := s.db.Prepare("UPDATE todos SET completed = ? WHERE id = ?")
+    stmt, err := s.db.Prepare("UPDATE Deploy1 SET completed = ? WHERE id = ?")
     if err != nil {
         panic(err)
     }

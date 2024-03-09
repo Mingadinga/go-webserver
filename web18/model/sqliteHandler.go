@@ -13,14 +13,14 @@ type sqliteHandler struct {
 }
 
 // 생성자
-// todos 테이블 생성
+// Deploy1 테이블 생성
 func newSqliteHandler(filepath string) DBHandler {
 	database, err := sql.Open("sqlite3", filepath)
 	if err != nil {
 		panic(err)
 	}
 	statement, _ := database.Prepare(
-		`CREATE TABLE IF NOT EXISTS todos (
+		`CREATE TABLE IF NOT EXISTS Deploy1 (
 			id        INTEGER  PRIMARY KEY AUTOINCREMENT,
 			name      TEXT,
 			completed BOOLEAN,
@@ -33,7 +33,7 @@ func newSqliteHandler(filepath string) DBHandler {
 // dbHandler의 메소드 구현
 func (s *sqliteHandler) GetTodos() []*Todo {
 	todos := []*Todo{}
-	rows, err := s.db.Query("SELECT id, name, completed, createdAt FROM todos")
+	rows, err := s.db.Query("SELECT id, name, completed, createdAt FROM Deploy1")
 	if err != nil {
 		panic(err)
 	}
@@ -48,7 +48,7 @@ func (s *sqliteHandler) GetTodos() []*Todo {
 }
 
 func (s *sqliteHandler) AddTodo(name string) *Todo {
-	stmt, err := s.db.Prepare("INSERT INTO todos (name, completed, createdAt) VALUES (?, ?, datetime('now'))")
+	stmt, err := s.db.Prepare("INSERT INTO Deploy1 (name, completed, createdAt) VALUES (?, ?, datetime('now'))")
 	if err != nil {
 		panic(err)
 	}
@@ -67,7 +67,7 @@ func (s *sqliteHandler) AddTodo(name string) *Todo {
 }
 
 func (s *sqliteHandler) RemoveTodo(id int) bool {
-	stmt, err := s.db.Prepare("DELETE FROM todos WHERE id = ?")
+	stmt, err := s.db.Prepare("DELETE FROM Deploy1 WHERE id = ?")
 	if err != nil {
 		panic(err)
 	}
@@ -80,7 +80,7 @@ func (s *sqliteHandler) RemoveTodo(id int) bool {
 }
 
 func (s *sqliteHandler) CompleteTodo(id int, complete bool) bool {
-	stmt, err := s.db.Prepare("UPDATE todos SET completed = ? WHERE id = ?")
+	stmt, err := s.db.Prepare("UPDATE Deploy1 SET completed = ? WHERE id = ?")
 	if err != nil {
 		panic(err)
 	}

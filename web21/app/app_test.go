@@ -9,7 +9,7 @@ import (
 	"os"
 	"strconv"
 	"testing"
-	"web21/model"
+	"todos/model"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -32,7 +32,7 @@ func TestAddTodo(t *testing.T) {
 	defer ts.Close()
 
 	// when
-	resp, err := http.PostForm(ts.URL+"/todos", url.Values{"name": {"Test todo"}})
+	resp, err := http.PostForm(ts.URL+"/Deploy1", url.Values{"name": {"Test todo"}})
 
 	// then
 	assert.NoError(err)
@@ -46,7 +46,7 @@ func TestAddTodo(t *testing.T) {
 	id := todo.ID
 
 	// then - clean data
-	req, _ := http.NewRequest("DELETE", ts.URL+"/todos/"+strconv.Itoa(id), nil)
+	req, _ := http.NewRequest("DELETE", ts.URL+"/Deploy1/"+strconv.Itoa(id), nil)
 	resp, err = http.DefaultClient.Do(req)
 }
 
@@ -67,7 +67,7 @@ func TestGetTodo(t *testing.T) {
 
 	// given - add first data
 	var todo1 model.Todo
-	resp, err := http.PostForm(ts.URL+"/todos", url.Values{"name": {"Test todo1"}})
+	resp, err := http.PostForm(ts.URL+"/Deploy1", url.Values{"name": {"Test todo1"}})
 	assert.NoError(err)
 	assert.Equal(http.StatusCreated, resp.StatusCode)
 	err = json.NewDecoder(resp.Body).Decode(&todo1)
@@ -77,7 +77,7 @@ func TestGetTodo(t *testing.T) {
 
 	// given - add second data
 	var todo2 model.Todo
-	resp, err = http.PostForm(ts.URL+"/todos", url.Values{"name": {"Test todo2"}})
+	resp, err = http.PostForm(ts.URL+"/Deploy1", url.Values{"name": {"Test todo2"}})
 	assert.NoError(err)
 	assert.Equal(http.StatusCreated, resp.StatusCode)
 	err = json.NewDecoder(resp.Body).Decode(&todo2)
@@ -86,7 +86,7 @@ func TestGetTodo(t *testing.T) {
 	id2 := todo2.ID
 
 	// when
-	resp, err = http.Get(ts.URL + "/todos")
+	resp, err = http.Get(ts.URL + "/Deploy1")
 	assert.NoError(err)
 	assert.Equal(http.StatusOK, resp.StatusCode)
 
@@ -129,7 +129,7 @@ func TestCompleteTodo(t *testing.T) {
 
 	// given - add first data
 	var todo model.Todo
-	resp, err := http.PostForm(ts.URL+"/todos", url.Values{"name": {"Test todo"}})
+	resp, err := http.PostForm(ts.URL+"/Deploy1", url.Values{"name": {"Test todo"}})
 	assert.NoError(err)
 	assert.Equal(http.StatusCreated, resp.StatusCode)
 	err = json.NewDecoder(resp.Body).Decode(&todo)
@@ -141,7 +141,7 @@ func TestCompleteTodo(t *testing.T) {
 	http.Get(ts.URL + "/complete-todo/" + strconv.Itoa(id) + "?complete=true")
 
 	// then - get data
-	resp, err = http.Get(ts.URL + "/todos")
+	resp, err = http.Get(ts.URL + "/Deploy1")
 	assert.NoError(err)
 	assert.Equal(http.StatusOK, resp.StatusCode)
 
@@ -156,7 +156,7 @@ func TestCompleteTodo(t *testing.T) {
 	}
 
 	// then - clear
-	req, _ := http.NewRequest("DELETE", ts.URL+"/todos/"+strconv.Itoa(id), nil)
+	req, _ := http.NewRequest("DELETE", ts.URL+"/Deploy1/"+strconv.Itoa(id), nil)
 	resp, err = http.DefaultClient.Do(req)
 }
 
@@ -177,7 +177,7 @@ func TestRemoveTodo(t *testing.T) {
 
 	// give - add data
 	var todo model.Todo
-	resp, err := http.PostForm(ts.URL+"/todos", url.Values{"name": {"Test todo"}})
+	resp, err := http.PostForm(ts.URL+"/Deploy1", url.Values{"name": {"Test todo"}})
 	assert.NoError(err)
 	assert.Equal(http.StatusCreated, resp.StatusCode)
 	err = json.NewDecoder(resp.Body).Decode(&todo)
@@ -186,7 +186,7 @@ func TestRemoveTodo(t *testing.T) {
 	id := todo.ID
 
 	// when
-	req, _ := http.NewRequest("DELETE", ts.URL+"/todos/"+strconv.Itoa(id), nil)
+	req, _ := http.NewRequest("DELETE", ts.URL+"/Deploy1/"+strconv.Itoa(id), nil)
 
 	// then
 	resp, err = http.DefaultClient.Do(req)

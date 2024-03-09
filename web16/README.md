@@ -53,7 +53,7 @@ func MakeHandler() http.Handler {
 	r := mux.NewRouter()
 
 	r.HandleFunc("/", indexHandler).Methods("GET")
-	r.HandleFunc("/todos", getTodoListHandler)
+	r.HandleFunc("/Deploy1", getTodoListHandler)
 
 	return r
 }
@@ -104,7 +104,7 @@ func addTodoHandler(w http.ResponseWriter, r *http.Request) {
 
 func MakeHandler() http.Handler {
     r := mux.NewRouter()
-    r.HandleFunc("/todos", addTodoHandler).Methods("POST")
+    r.HandleFunc("/Deploy1", addTodoHandler).Methods("POST")
     return r
 }
 
@@ -140,7 +140,7 @@ func removeTodoHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func MakeHandler() http.Handler {
-    r.HandleFunc("/todos/{id:[0-9]+}", removeTodoHandler).Methods("DELETE")
+    r.HandleFunc("/Deploy1/{id:[0-9]+}", removeTodoHandler).Methods("DELETE")
     return r
 }
 ```

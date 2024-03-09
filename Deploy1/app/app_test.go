@@ -9,12 +9,18 @@ import (
 	"os"
 	"strconv"
 	"testing"
-	"web18/model"
+	"todos-dep1/model"
 
 	"github.com/stretchr/testify/assert"
 )
 
 func TestAddTodo(t *testing.T) {
+
+	// pass login mockup
+	getSessionID = func(r *http.Request) string {
+		return "testSessionId"
+	}
+
 	// clean up
 	os.Remove("./test.db")
 
@@ -45,6 +51,11 @@ func TestAddTodo(t *testing.T) {
 }
 
 func TestGetTodo(t *testing.T) {
+	// pass login mockup
+	getSessionID = func(r *http.Request) string {
+		return "testSessionId"
+	}
+
 	// clean up
 	os.Remove("./test.db")
 
@@ -102,6 +113,11 @@ func TestGetTodo(t *testing.T) {
 }
 
 func TestCompleteTodo(t *testing.T) {
+	// pass login mockup
+	getSessionID = func(r *http.Request) string {
+		return "testSessionId"
+	}
+
 	// clean up
 	os.Remove("./test.db")
 
@@ -145,6 +161,11 @@ func TestCompleteTodo(t *testing.T) {
 }
 
 func TestRemoveTodo(t *testing.T) {
+	// pass login mockup
+	getSessionID = func(r *http.Request) string {
+		return "testSessionId"
+	}
+
 	// clean up
 	os.Remove("./test.db")
 

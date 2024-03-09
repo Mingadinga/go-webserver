@@ -3,15 +3,13 @@ package app
 import (
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
-	"github.com/joho/godotenv"
 	"github.com/unrolled/render"
 	"github.com/urfave/negroni"
-	"log"
 	"net/http"
 	"os"
 	"strconv"
 	"strings"
-	"web21/model"
+	"todos/model"
 )
 
 var rd *render.Render = render.New()
@@ -99,17 +97,17 @@ func MakeHandler(filepath string) *AppHandler {
 
 	a := &AppHandler{Handler: n, db: model.NewDBHandler(filepath)}
 
-	err := godotenv.Load(".env")
-	if err != nil {
-		log.Fatal(".env 파일을 찾을 수 없습니다.")
-	}
+	//err := godotenv.Load(".env")
+	//if err != nil {
+	//	log.Fatal(".env 파일을 찾을 수 없습니다.")
+	//}
 	initSessionCookieStore()
 	initGoogleOauthConfig()
 
 	r.HandleFunc("/", a.indexHandler)
-	r.HandleFunc("/todos", a.getTodoListHandler).Methods("GET")
-	r.HandleFunc("/todos", a.addTodoHandler).Methods("POST")
-	r.HandleFunc("/todos/{id:[0-9]+}", a.removeTodoHandler).Methods("DELETE")
+	r.HandleFunc("/Deploy1", a.getTodoListHandler).Methods("GET")
+	r.HandleFunc("/Deploy1", a.addTodoHandler).Methods("POST")
+	r.HandleFunc("/Deploy1/{id:[0-9]+}", a.removeTodoHandler).Methods("DELETE")
 	r.HandleFunc("/complete-todo/{id:[0-9]+}", a.completeTodoHandler).Methods("GET")
 	r.HandleFunc("/auth/google/login", googleLoginHandler)
 	r.HandleFunc("/auth/google/callback", googleAuthCallback)
