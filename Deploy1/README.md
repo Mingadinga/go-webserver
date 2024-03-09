@@ -1,5 +1,5 @@
 # .env 의존성 제거 및 환경변수 추가
-
+![스크린샷 2024-03-09 오후 10 41 29](https://github.com/Mingadinga/go-webserver/assets/53958188/3447da2c-51ed-4779-b399-d3aee524043d)
 
 # 배포를 위한 도커 파일 작성
 이미지 크기를 줄이기 위해 multi file staging 사용
