@@ -16,4 +16,4 @@
 | Web16-7  | Todo Web App                       | [Web16 README](https://github.com/Mingadinga/go-webserver/blob/main/web16/README.md) |
 | Web18-20 | Todo Web App - SqLite3 연동          | [Web18 README](https://github.com/Mingadinga/go-webserver/blob/main/web18/README.md) |
 | Web21-22 | Todo Web App - Auth 로그인 연동 및 세션 추가 | [Web21 README](https://github.com/Mingadinga/go-webserver/blob/main/web21/README.md) |
-| Deploy1  | Dockerize 후 ECS Fargate로 배포 | [Deploy1 README] | [Deploy1 README](https://github.com/Mingadinga/go-webserver/blob/main/todos/README.md)                                                                     |
+| Deploy1  | Dockerize 후 ECS Fargate로 배포 | [Deploy1 README](https://github.com/Mingadinga/go-webserver/blob/main/todos/README.md) |
