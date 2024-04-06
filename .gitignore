@@ -1,9 +1,12 @@
 /Deploy1/app/.env
+/Deploy2/app/.env
 /web21/.env
 /web15/.env
 /web21/app/.env
 
 /web21/*.db
 /web21/app/*.db
-/todos/*.db
-/todos/app/*.db
+/Deploy1/*.db
+/Deploy1/app/*.db
+/Deploy2/*.db
+/Deploy2/app/*.db
