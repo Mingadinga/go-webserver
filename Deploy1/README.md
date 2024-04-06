@@ -63,3 +63,16 @@ Mac M1은 빌드 옵션에 --platform=linux/amd64를 붙여야함
 
 ## 접속 확인
 ![image](https://github.com/Mingadinga/go-webserver/assets/53958188/fcc0bfde-562c-449c-92e7-95630775e042)
+
+# exec format error 에러 - docker image build 옵션
+
+고생 끝에 Go 웹 서버 도커라이즈를 마쳤고 ECS Fargate에 배포를 했는데..
+
+아니 선생님 우리 이미지가 뭘 잘못했나요?????
+![image](https://github.com/Mingadinga/go-webserver/assets/53958188/226b1f65-c4e4-46dd-a64c-2652ad2be00b)
+
+알고보니 Mac M1에서 일부 이미지 플랫폼을 지원하지 않기 때문이라고.. 그래서 build할 때 --platform=linux/amd64 옵션을 추가해서 아키텍처를 지정해야 한다. 푸시하면 다음과 같이 arch가 linux/amd6로 바뀐 것을 볼 수 있다.
+![image](https://github.com/Mingadinga/go-webserver/assets/53958188/37683cec-09aa-4d00-aa07-8ab8991027e7)
+
+새로운 revision을 생성했고, 웹 서버가 잘 실행된 것을 확인할 수 있다.
+![image](https://github.com/Mingadinga/go-webserver/assets/53958188/5321bde2-6b79-49db-b08c-fb32366b3be9)

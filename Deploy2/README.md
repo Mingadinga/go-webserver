@@ -264,33 +264,3 @@ RDS가 SSL을 강제하지 않도록 설정값 변경
 ![image](https://github.com/Mingadinga/go-webserver/assets/53958188/480fa541-a214-4342-9da7-b54fbfe04faf)
 
 
-
-# AWS ECS Fargate 배포
-
-## Task Definition 생성
-![image](https://github.com/Mingadinga/go-webserver/assets/53958188/9b74cde7-06f9-4d3b-b600-7b67e3cba772)
-
-ecsTaskExecutionRole : AmazonECSTaskExecutionRolePolicy, SecretsManagerReadWrite
-
-![image](https://github.com/Mingadinga/go-webserver/assets/53958188/fa746bf9-a985-40b2-9d4d-49dba9578b8c)
-
-
-## Service 생성
-![image](https://github.com/Mingadinga/go-webserver/assets/53958188/03237060-a24c-42c0-bd73-16deb0cb232f)
-![image](https://github.com/Mingadinga/go-webserver/assets/53958188/d63f8a06-d566-4590-8ce3-533dc0a83c0c)
-![image](https://github.com/Mingadinga/go-webserver/assets/53958188/f2b8b07f-0a50-4a7e-aa99-1bc85c31c1ee)
-
-
-
-# exec format error 에러 - docker image build 옵션
-
-고생 끝에 Go 웹 서버 도커라이즈를 마쳤고 ECS Fargate에 배포를 했는데..
-
-아니 선생님 우리 이미지가 뭘 잘못했나요?????
-![image](https://github.com/Mingadinga/go-webserver/assets/53958188/226b1f65-c4e4-46dd-a64c-2652ad2be00b)
-
-알고보니 Mac M1에서 일부 이미지 플랫폼을 지원하지 않기 때문이라고.. 그래서 build할 때 --platform=linux/amd64 옵션을 추가해서 아키텍처를 지정해야 한다. 푸시하면 다음과 같이 arch가 linux/amd6로 바뀐 것을 볼 수 있다.
-![image](https://github.com/Mingadinga/go-webserver/assets/53958188/37683cec-09aa-4d00-aa07-8ab8991027e7)
-
-새로운 revision을 생성했고, 웹 서버가 잘 실행된 것을 확인할 수 있다.
-![image](https://github.com/Mingadinga/go-webserver/assets/53958188/5321bde2-6b79-49db-b08c-fb32366b3be9)
