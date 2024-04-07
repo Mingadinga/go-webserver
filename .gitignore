@@ -10,3 +10,6 @@
 /Deploy1/app/*.db
 /Deploy2/*.db
 /Deploy2/app/*.db
+/web22/app/.env
+/web22/app/*.db
+/web22/*.db
